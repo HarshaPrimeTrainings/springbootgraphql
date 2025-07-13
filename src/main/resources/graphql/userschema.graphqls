@@ -1,0 +1,35 @@
+type User{
+uid: ID
+username: String
+contact: String
+orders:[Orders]
+}
+
+type Orders{
+oid:ID
+ordertype: String
+orderstatus: String
+}
+
+input UserInput{
+username: String
+contact: String
+orders: [OrdersInput]
+}
+
+input OrdersInput{
+ordertype: String
+orderstatus: String
+}
+
+type Query{
+	getusers:[User]
+	getUser(uid:ID!):User
+}
+
+type Mutation{
+saveuser(userinput: UserInput): User
+deleteuser(uid:ID!):String
+}
+
+
